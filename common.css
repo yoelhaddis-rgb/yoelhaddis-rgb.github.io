@@ -1,0 +1,92 @@
+/* shared tokens + layout: paper/ink base, ochre (craft) + steel-blue (process) as the two accents — a visual nod to "AI + organizational process" */
+:root{
+  --bg:#f7f5f0; --surface:#ffffff; --ink:#14151a; --muted:#5c5a52;
+  --border:#e4e0d6; --border-strong:#cfc9ba;
+  --accent:#b8752a; --accent-ink:#2a1b08; --accent-soft:#f3e6d2;
+  --accent2:#3d5a73; --accent2-soft:#e4ebf0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#15161b; --surface:#1b1d24; --ink:#eeece4; --muted:#9a978c;
+    --border:#2a2c33; --border-strong:#393c47;
+    --accent:#dba05c; --accent-ink:#1b1506; --accent-soft:#2b2214;
+    --accent2:#8bb0cc; --accent2-soft:#1b2630;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#15161b; --surface:#1b1d24; --ink:#eeece4; --muted:#9a978c;
+  --border:#2a2c33; --border-strong:#393c47;
+  --accent:#dba05c; --accent-ink:#1b1506; --accent-soft:#2b2214;
+  --accent2:#8bb0cc; --accent2-soft:#1b2630;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  font-size:16px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+a{color:var(--accent2)}
+h1,h2,h3{font-family:"Archivo",system-ui,sans-serif; margin:0; text-wrap:balance}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+img{max-width:100%}
+.wrap{max-width:860px; margin:0 auto}
+
+/* nav */
+nav.top{
+  border-bottom:1px solid var(--border); padding-block:18px;
+}
+nav.top .wrap{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px}
+nav.top .brand{font-family:"Archivo",sans-serif; font-weight:800; font-size:17px; text-decoration:none; color:var(--ink)}
+nav.top .links{display:flex; gap:22px; font-size:14px; font-weight:600}
+nav.top .links a{color:var(--muted); text-decoration:none}
+nav.top .links a:hover, nav.top .links a.active{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--accent2); background:var(--accent2-soft); border-radius:99px; padding:5px 12px; display:inline-block; margin-bottom:18px;
+}
+h1.headline{font-size:clamp(32px,5.2vw,48px); font-weight:800; line-height:1.1}
+.hero .sub{color:var(--muted); font-size:17px; max-width:56ch; margin-top:14px}
+.cta-row{display:flex; gap:12px; margin-top:28px; flex-wrap:wrap}
+.btn{
+  display:inline-flex; align-items:center; gap:7px; font-size:14.5px; font-weight:700;
+  padding:12px 20px; border-radius:8px; text-decoration:none; border:1px solid transparent;
+}
+.btn.primary{background:var(--accent); color:var(--accent-ink)}
+.btn.ghost{border-color:var(--border-strong); color:var(--ink)}
+
+section{padding-block:40px}
+.section-label{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:12px;
+}
+h2.section-title{font-size:clamp(20px,3vw,26px); font-weight:800; margin-bottom:22px}
+
+/* project cards */
+.proj-grid{display:flex; flex-direction:column; gap:14px}
+.proj-card{
+  display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--border); border-radius:14px; padding:22px 24px;
+  background:var(--surface);
+}
+.proj-card .tag{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent); background:var(--accent-soft);
+  border-radius:99px; padding:3px 10px; display:inline-block; margin-bottom:10px;
+}
+.proj-card h3{font-size:19px; margin-bottom:6px}
+.proj-card p{font-size:14.5px; color:var(--muted); margin:0 0 10px; max-width:70ch}
+.proj-card .meta{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted)}
+.proj-card:hover{border-color:var(--border-strong)}
+
+footer{padding-block:40px 56px; border-top:1px solid var(--border); margin-top:20px}
+footer p{font-size:12.5px; color:var(--muted)}
+footer .links{display:flex; gap:16px; font-size:13px; font-weight:600; margin-top:8px}
+footer .links a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--border-strong)}
